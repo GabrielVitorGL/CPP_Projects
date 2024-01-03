@@ -1,0 +1,80 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main (){
+	
+	setlocale(LC_ALL, "portuguese");
+	int voto;
+	float huguinho, zezinho, luizinho, votosnulos, continuar;
+
+	
+	printf("Para votar no Huguinho digite 1\n");
+	printf("Para votar no Zezinho digite 2\n");
+	printf("Para votar no Luizinho digite 3\n");
+	printf("Para votar nulo digite 4\n");
+	printf("Para parar a contagem digite 0\n");
+	do{
+		printf("Digite seu voto: ");
+		scanf("%d",&voto);
+		switch(voto){
+			case 0: 
+				break;
+			case 1: 
+				huguinho=huguinho+1;
+				break;
+			case 2: 
+				zezinho=zezinho+1;
+				break;
+			case 3: 
+				luizinho=luizinho+1;
+				break;
+			default: 
+				votosnulos=votosnulos+1;
+		}
+	}while(voto!=0);
+  	if (luizinho>huguinho)
+    {
+      if (huguinho>zezinho)
+	{
+		printf("\n1º -> 3 - Luizinho - %.0f votos - %.1f%%\n2º -> 1 - Huguinho - %.0f votos - %.1f%%\n3º -> 2 - Zezinho - %.0f votos - %.1f%%\nTambém houveram %.0f votos nulos", luizinho, (luizinho/(huguinho+zezinho+luizinho))*100, huguinho, (huguinho/(huguinho+zezinho+luizinho))*100, zezinho, (zezinho/(huguinho+zezinho+luizinho))*100, votosnulos);
+	}
+      else 
+	{
+	  if (zezinho<luizinho)
+	    {
+	    	printf("\n1º -> 3 - Luizinho - %.0f votos - %.1f%%\n2º -> 2 - Zezinho - %.0f votos - %.1f%%\n3º -> 1 - Huguinho - %.0f votos - %.1f%%\nTambém houveram %.0f votos nulos", luizinho, (luizinho/(huguinho+zezinho+luizinho))*100, zezinho, (zezinho/(huguinho+zezinho+luizinho))*100, huguinho, (huguinho/(huguinho+zezinho+luizinho))*100, votosnulos);
+	    }
+	}
+    }
+  
+  	if (huguinho>zezinho)
+    {
+      if (zezinho>luizinho)
+	{
+		printf("\n1º -> 1 - Huguinho - %.0f votos - %.1f%%\n2º -> 2 - Zezinho - %.0f votos - %.1f%%\n3º -> 3 - Luizinho - %.0f votos - %.1f%%\nTambém houveram %.0f votos nulos",huguinho, (huguinho/(huguinho+zezinho+luizinho))*100, zezinho, (zezinho/(huguinho+zezinho+luizinho))*100, luizinho, (luizinho/(huguinho+zezinho+luizinho))*100, votosnulos);
+	}
+      else 
+	{
+	  if (luizinho<huguinho)
+	    {
+	  		printf("\n1º -> 1 - Huguinho - %.0f votos - %.1f%%\n2º -> 3 - Luizinho - %.0f votos - %.1f%%\n3º -> 2 - Zezinho - %.0f votos - %.1f%%\nTambém houveram %.0f votos nulos", huguinho, (huguinho/(huguinho+zezinho+luizinho))*100, luizinho, (luizinho/(huguinho+zezinho+luizinho))*100, zezinho, (zezinho/(huguinho+zezinho+luizinho))*100, votosnulos);
+	    }
+	}
+    }
+  
+  	if (huguinho<zezinho)
+    {
+      if (luizinho<huguinho)
+	{
+		printf("\n1º -> 2 - Zezinho - %.0f votos - %.1f%%\n2º -> 1 - Huguinho - %.0f votos - %.1f%%\n3º -> 3 - Luizinho - %.0f votos - %.1f%%\nTambém houveram %.0f votos nulos", zezinho, (zezinho/(huguinho+zezinho+luizinho))*100, huguinho, (huguinho/(huguinho+zezinho+luizinho))*100, luizinho, (luizinho/(huguinho+zezinho+luizinho))*100, votosnulos);
+	}
+      else 
+	{
+	  if (luizinho<zezinho)
+	    {
+	  		printf("\n1º -> 2 - Zezinho - %.0f votos - %.1f%%\n2º -> 3 - Luizinho - %.0f votos - %.1f%%\n3º -> 1 - Huguinho - %.0f votos - %.1f%%\nTambém houveram %.0f votos nulos", zezinho, (zezinho/(huguinho+zezinho+luizinho))*100, luizinho, (luizinho/(huguinho+zezinho+luizinho))*100, huguinho, (huguinho/(huguinho+zezinho+luizinho))*100, votosnulos);
+	    }
+	}
+    }
+}

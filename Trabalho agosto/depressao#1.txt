@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main (){
+	
+	setlocale(LC_ALL, "portuguese");
+	
+	float num, total, med, totalnum, positivos, negativos, prcntp, prcntn;
+	char continuar;
+		negativos=0;
+		positivos=0;
+		totalnum=0;
+	do{
+		printf("Digite um número: ");
+		scanf("%f",&num);
+		total=total+num;
+		totalnum=totalnum+1;
+		if (num < 0){
+			negativos=negativos+1;
+		}
+		else{
+			positivos=positivos+1;
+		}
+	printf("Continuar calculando? (s/n) ");
+	scanf("%s",&continuar);
+	} while(continuar == 's' || continuar == 'S');
+	med=total/totalnum;
+	prcntp=(positivos/totalnum)*100;
+	prcntn=(negativos/totalnum)*100;
+	printf("Média: %.2f\n",med);
+	printf("Números positivos: %.0f\n",positivos);
+	printf("Números negativos: %.0f\n",negativos);
+	printf("Percentual de números positivos: %.0f%%\n",prcntp);
+	printf("Percentual de números negativos: %.0f%%",prcntn);	
+}

@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main (){
+	
+	setlocale(LC_ALL, "portuguese");
+	
+	float idade, sal, medsal, totalsal, maidade, meidade, voltas, ate100;
+	char continuar, sexo;
+	maidade=0;
+	meidade=999;
+	ate100=0;
+	voltas=0;
+	do{
+		printf("Digite a idade: ");
+		scanf("%f",&idade);
+		printf("Digite o sexo (masculino/feminino): ");
+		scanf("%s",&sexo);
+		printf("Digite o salário: ");
+		scanf("%f",&sal);
+        if((sexo=='F'||sexo=='f') && sal<=100){
+			ate100=ate100+1;
+		}
+		if(idade>=maidade){
+			maidade=idade;
+		}
+		if(idade<=meidade){
+			meidade=idade;
+		}
+        totalsal=totalsal + sal;
+		voltas=voltas+1;
+		printf("Continuar calculando? (s/n) ");
+		scanf("%s",&continuar);
+		} while(continuar=='s'||continuar=='S');
+	medsal=totalsal/voltas;
+	printf("A média de salários é: %.2f\n",medsal);
+	printf("A maior idade do grupo foi: %.0f\n",maidade);
+	printf("A menor idade do grupo foi: %.0f\n",meidade);
+	printf("A quantidade de mulheres com salário até R$100 foi: %.0f\n",ate100);
+}
+
+

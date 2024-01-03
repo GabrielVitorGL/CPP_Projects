@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main (){
+	
+	setlocale(LC_ALL, "portuguese");
+	
+	float total, med, totalnum, pares, totalpares, medp, impares;
+	int num;
+	impares=0;
+	totalnum=0;
+	pares=0;
+	printf("Para parar a leitura de números digite 0\n");
+	do{
+		printf("Digite um número positivo: ");
+		scanf("%d",&num);
+		while(num<0){
+		printf("Número inválido, digite um número positivo: ");
+		scanf("%d",&num);
+		}
+		total=total+num;
+		totalnum=totalnum+1;
+    	if ((num % 2)==0){
+    		pares=pares+1;
+    		totalpares=totalpares+num;
+		}
+		else{
+			impares = impares + 1;
+		}
+	} while(num != 0);
+	medp = totalpares/(pares-1);
+	med = total/(totalnum-1);
+	printf("A quantidade de números pares que você digitou foi: %.0f\n",pares-1);
+	printf("A quantidade de números ímpares que você digitou foi: %.0f\n",impares);
+	printf("A média de valores pares é: %.2f\n",medp);
+	printf("A média total dos valores é: %.2f\n",med);
+}

@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main (){
+	
+	setlocale(LC_ALL, "portuguese");
+	int cont, sexo;
+	float altura, totalalt, maioralt, menoralt, totalaltfem, media, mediafem;
+	
+	menoralt=999;
+	for (cont=1; cont<=50; cont++){
+		printf("\nDigite a altura: ");
+		scanf("%f",&altura);
+		printf("Digite o sexo (1=masculino/2=feminino): ");
+		scanf("%d",&sexo);
+		totalalt=totalalt+altura;
+		if(altura>=maioralt){
+			maioralt=altura;
+		}
+		if(altura<=menoralt){
+			menoralt=altura;
+		}
+		if(sexo==2){
+			totalaltfem=totalaltfem+altura;
+		}
+	}
+	media=totalalt/50;
+	mediafem=totalaltfem/50;
+	printf("A maior altura é: %.2f\n",maioralt);
+	printf("A menor altura é: %.2f\n",menoralt);
+	printf("A média de altura das mulhers é: %.2f\n",mediafem);
+	printf("A média de altura é: %.2f\n",media);
+}
+
